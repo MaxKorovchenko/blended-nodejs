@@ -1,4 +1,4 @@
-const Joi = require("joi");
+const Joi = require('joi');
 
 const taskSchema = Joi.object({
   title: Joi.string().min(3).max(30).required(),
@@ -7,10 +7,10 @@ const taskSchema = Joi.object({
 
 const updateTaskValidationSchema = Joi.object()
   .keys({
-    title: taskSchema.extract("title").optional(),
-    completed: taskSchema.extract("completed").optional(),
+    title: taskSchema.extract('title').optional(),
+    completed: taskSchema.extract('completed').optional(),
   })
-  .or("title", "completed");
+  .or('title', 'completed');
 
 module.exports = {
   taskSchema,

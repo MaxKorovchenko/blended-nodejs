@@ -1,5 +1,5 @@
-const { signupService } = require("../services/authServices");
-const { catchAsync } = require("../utils/catchAsync");
+const { signupService } = require('../services/authServices');
+const { catchAsync } = require('../utils/catchAsync');
 
 let signup = async (req, res) => {
   const newUser = await signupService(req.body);

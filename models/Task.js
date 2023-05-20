@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const schema = new mongoose.Schema(
   {
@@ -14,7 +14,7 @@ const schema = new mongoose.Schema(
   { timestamps: true, versionKey: false }
 );
 
-const Task = mongoose.model("task", schema);
+const Task = mongoose.model('task', schema);
 
 module.exports = {
   Task,
