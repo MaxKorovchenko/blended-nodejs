@@ -17,14 +17,12 @@ const getTasks = async (req, res) => {
 const getTask = async (req, res) => {
   const { taskId } = req.params;
   const task = await getTaskService(taskId);
-  console.log(req.params);
 
   res.status(200).json(task);
 };
 
 const createTask = async (req, res, next) => {
   const newTask = await createTaskService(req.body);
-  console.log(req.body);
 
   res.status(201).json(newTask);
 };

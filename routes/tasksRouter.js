@@ -13,7 +13,7 @@ const {
   updateTaskValidationSchema,
 } = require('../utils/validation/taskValidationSchemas');
 
-const { validateBody } = require('../utils/validateBody');
+const { validateBody } = require('../middlewares/validateBody');
 
 const router = express.Router();
 

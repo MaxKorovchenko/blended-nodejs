@@ -1,21 +1,15 @@
 const { signupService } = require('../services/authServices');
 const { catchAsync } = require('../utils/catchAsync');
 
-let signup = async (req, res) => {
+const signup = catchAsync(async (req, res) => {
   const newUser = await signupService(req.body);
 
   res.status(201).json(newUser);
-};
+});
 
-signup = catchAsync(signup);
+const login = catchAsync(async (req, res) => {});
 
-let login = async (req, res) => {};
-
-login = catchAsync(login);
-
-let logout = async (req, res) => {};
-
-logout = catchAsync(logout);
+const logout = catchAsync(async (req, res) => {});
 
 module.exports = {
   signup,

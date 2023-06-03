@@ -1,7 +1,7 @@
 const express = require('express');
-const { signup, login, logout } = require('../controllers/authControllers');
 
-const { validateBody } = require('../utils/validateBody');
+const { signup, login, logout } = require('../controllers/authControllers');
+const { validateBody } = require('../middlewares/validateBody');
 
 const {
   createUserValidationSchema,
