@@ -1,18 +1,21 @@
 const express = require('express');
-const { tasksRouter } = require('./routes/tasksRouter');
-const { authRouter } = require('./routes/authRouter');
+const cors = require('cors');
+const helmet = require('helmet');
+
+const { rootRouter } = require('./routes');
+const { globalErrorHandler } = require('./middlewares/globalErrorHandler');
+const { notFoundHandler } = require('./middlewares/notFoundHandler');
 
 const app = express();
+
 app.use(express.json());
+app.use(cors());
+app.use(helmet());
 
-app.use('/tasks', tasksRouter);
+app.use('/', rootRouter);
 
-app.use('/auth', authRouter);
+app.use(notFoundHandler);
 
-app.use((err, req, res, next) => {
-  res.status(err.statusCode || 500).json({
-    message: err.message || 'something went wrong. Please try again later',
-  });
-});
+app.use(globalErrorHandler);
 
 module.exports = { app };
